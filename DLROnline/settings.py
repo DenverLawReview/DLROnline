@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'articles.apps.ArticlesConfig',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Custom Apps
+    'articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Grappelli Settings
+GRAPPELLI_ADMIN_TITLE = "Denver Law Review"

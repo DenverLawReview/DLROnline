@@ -7,6 +7,7 @@ class Article(models.Model):
     body = models.TextField()
     slug = models.SlugField(max_length=100)
     pub_date = models.DateTimeField('date published')
+    volume = models.PositiveSmallIntegerField()
     published = models.BooleanField()
     created_on = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(User, limit_choices_to={'is_superuser': True})
@@ -17,6 +18,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.headline
+
 
 class Category(models.Model):
     title = models.CharField(max_length=100)
