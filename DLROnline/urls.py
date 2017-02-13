@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from articles.views import ArticleList
 
 urlpatterns = [
     url('^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^articles/', include('articles.urls')),
+    url(r'^$', ArticleList.as_view()),
+    url(r'^', include('articles.urls')),
 ]
