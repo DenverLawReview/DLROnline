@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{% url "articles:article-list" %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria=expanded="false">Articles <span class="caret"></span></a>
+                            <a href="{% url "articles:article-list" %}" class="pull-left">Articles</a><b class="dropdown-toggle pull-left" data-toggle="dropdown" role="button" aria-haspopup="true" aria=expanded="false"><span class="caret"></span></b>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url "articles:print-issue-list" %}">Print Issues</a></li>
                                 <li><a href="{% url "articles:online-issue-list" %}">Special Issues</a></li>
@@ -67,5 +67,8 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        {% block extrajs %}
+
+        {% endblock extrajs %}
     </body>
 </html>

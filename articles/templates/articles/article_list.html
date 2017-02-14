@@ -3,7 +3,8 @@
 {% for article in object_list %}
     <div>
         <h1><a href="{% url "articles:article-detail" article.pk article.slug %}" title="">{{article.headline}}</a></h1>
-        <p>{{article.body}}</p>
+        <p class="author">{{ article.author }}</p>
+        {{ article.body|safe }}
     </div>
 {% endfor %}
 {% endblock main_content %}

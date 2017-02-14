@@ -1,4 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extrastyles %}
+<link rel="stylesheet" type="text/css" href="{% static 'articles/bigfoot/bigfoot-default.css' %}">
+
+</style>
+<style type="text/css" media="screen">
+    article {
+        font-family: Times;
+    }
+    article h1 {
+        font-size: 1.15em;
+        text-align: center;
+        text-decoration: underline;
+    }
+    article h2 {
+        font-size: 1.10em;
+        text-align: center;
+    }
+    article p {
+        text-align: justify;
+    }
+    article .author {
+        text-align: center;
+        font-weight: bold;
+    }
+    article .article-title {
+        font-size: 2em;
+        text-align: center;
+        font-variant: small-caps;
+        font-color: green;
+    }
+</style>
+{% endblock extrastyles %}
 {% block main_content %}
-    <h1>{{object.headline}}</h1>
+<article>
+    <p class="small">{{object.pub_date}} <span class="label label-default">{{object.category.title}}</span></p>
+    <h1 class="article-title">{{object.headline}}</h1>
+    <p class="author">By {{object.author}}</p>
+    {{object.body|safe}}
+</article>
 {% endblock main_content %}
+{% block extrajs %}
+    <script src="{% static 'articles/bigfoot/bigfoot.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.bigfoot();
+    </script>
+{% endblock extrajs %}

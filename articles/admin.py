@@ -10,6 +10,12 @@ class ArticleAdmin(admin.ModelAdmin):
     exclude = ('online_issue', 'print_issue')
     prepopulated_fields = {"slug": ("headline",)}
 
+    class Media:
+        js = [
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/articles/tinymce_setup.js',
+        ]
+
 admin.site.register(Article, ArticleAdmin)
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -19,6 +25,13 @@ admin.site.register(Category, CategoryAdmin)
 
 class OnlineIssueAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
+
+    class Media:
+        js = [
+            '/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            '/static/articles/tinymce_setup.js',
+        ]
+
 
 admin.site.register(OnlineIssue, OnlineIssueAdmin)
 
