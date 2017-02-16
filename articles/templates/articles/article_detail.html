@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% block extrastyles %}
-<link rel="stylesheet" type="text/css" href="{% static 'articles/bigfoot/bigfoot-bottom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/bigfoot/bigfoot-bottom.css' %}">
 {% endblock extrastyles %}
 {% block main_content %}
 <article>
-    <p class="small">{{object.pub_date}} | <a href="{% url 'articles:category-detail' object.category.pk object.category.slug %}" class="label label-default">{{object.category.title}}</a></p>
-    <h1 class="headline">{{object.headline}}</h1>
-    <p class="author">By {{object.author}}</p>
-    {{object.body|safe}}
+    <p class="small">{{article.pub_date}} | <a href="{% url 'articles:category-detail' article.category.pk article.category.slug %}" class="label label-default">{{article.category.title}}</a></p>
+    <h1 class="headline">{{article.headline}}</h1>
+    <p class="author">By {{article.author}}</p>
+    {{article.body|safe}}
 </article>
 {% endblock main_content %}
 {% block extrajs %}

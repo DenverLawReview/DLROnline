@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main_content %}
+    <h1>{{ category.title }}</h1>
+    {% for article in category.article_set.all %}
+        <div class="row">
+            <div class="col-xs-12">
+                <h2><a href="{% url 'articles:article-detail' article.pk article.slug %}" title="{{ article.headline }}">{{ article.headline }}</a></h2>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock main_content %}

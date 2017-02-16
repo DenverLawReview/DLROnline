@@ -13,13 +13,14 @@ class Article(models.Model):
     headline = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     body = models.TextField()
+    blurb = models.TextField()
+    author_bio = models.TextField('author biography')
     slug = models.SlugField(max_length=100)
     pub_date = models.DateTimeField('date published')
     volume = models.PositiveSmallIntegerField()
     published = models.BooleanField()
     # Relationships
     category = models.ForeignKey('Category', blank=True, null=True, on_delete=models.SET_NULL)
-    tags = TaggableManager()
     online_issue = models.ForeignKey('OnlineIssue', blank=True, null=True, on_delete=models.SET_NULL)
     print_issue = models.ForeignKey('PrintIssue', blank=True, null=True, on_delete=models.SET_NULL)
 
@@ -32,10 +33,17 @@ class Article(models.Model):
     def __str__(self):
         return self.headline
 
+class CategoryWithCountManager(models.Manager):
+    def get_queryset(self):
+        return super(CategoryWithCountManager, self).get_queryset().filter(article__published=True,
+            article__pub_date__lte=timezone.now()).annotate(num_articles=models.Count('article')).filter(num_articles__gt=0).order_by('-num_articles')
 
 class Category(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
+
+    objects = models.Manager()
+    with_count = CategoryWithCountManager()
 
     class Meta:
         verbose_name_plural = 'categories'

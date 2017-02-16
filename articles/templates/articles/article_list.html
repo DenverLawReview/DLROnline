@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 {% block main_content %}
-{% for article in object_list %}
-    <div>
-        <h1 class="headline"><a href="{% url "articles:article-detail" article.pk article.slug %}" title="">{{article.headline}}</a></h1>
-        <p class="author">{{ article.author }}</p>
-        {{ article.body|safe }}
+{% for article in articles %}
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="headline"><a href="{% url 'articles:article-detail' article.pk article.slug %}" title="">{{article.headline}}</a></h1>
+            <div class="row small">
+                <div class="col-xs-6">
+                    <p>{{ article.author }} | {{ article.pub_date }}</p>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <p><a href="{% url 'articles:category-detail' article.category.pk article.category.slug %}" class="label label-default">{{ article.category.title }}</a></p>
+                </div>
+            </div>
+            {{ article.blurb|safe }}
+        {% if not forloop.last %}
+            <hr />
+        {% endif %}
+        </div>
     </div>
 {% endfor %}
 {% endblock main_content %}

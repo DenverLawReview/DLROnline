@@ -8,7 +8,6 @@ urlpatterns = [
     url(r'^articles/(?P<pk>\d+)/(?P<slug>[-_\w]+)$',
         ArticleDetail.as_view(), name='article-detail'),
     # Categories
-    url(r'^articles/categories/$', CategoryList.as_view(), name='category-list'),
     url(r'^articles/categories/(?P<pk>\d+)/(?P<slug>[-_\w]+)$',
         CategoryDetail.as_view(), name='category-detail'),
     # Print Issues

@@ -29,15 +29,16 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="" title="">Home</a></li>
-                        <li><a href="" title="">Print Issues</a></li>
-                        <li><a href="" title="">Special Features</a></li>
+                        <li><a href="{% url 'home' %}" title="">Home</a></li>
+                        <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
+                        <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
                         <li><a href="#">Symposia</a></li>
                         <li><a href="#" title="">News &amp; Events</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Masthead</a></li>
                                 <li><a href="#">Submissions</a></li>
@@ -54,12 +55,36 @@
                     {% endblock main_content %}
                 </div>
                 <div class="well col-lg-4 col-md-4">
-                    <h2>This is a sidebar.</h2>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>About <em>Denver&nbsp;Law&nbsp;Review</em></h3>
+                            <p>The <em>Denver Law Review</em> strives to publish articles of the highest quality in all areas of the law. The <em>Denver Law Review</em> has proudly featured such distinguished authors as U.S. Supreme Court Justices Sandra Day O’Connor, William O. Douglas, and Byron White; noted constitutional law scholar Erwin Chemerinsky; and consumer advocate Ralph Nader. The <em>Denver Law Review</em> actively seeks submissions from professors, practitioners, and judges from all practice areas.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4>Categories</h4>
+                            {% for category in categories %}
+                                <h5>{{ category.title }} <span class="badge">{{ category.num_articles }}</span></h5>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        {% block sidebar_content %}
+
+                        {% endblock sidebar_content %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 well">
+                    Denver Law Review
                 </div>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="{% static '/js/boostrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static '/js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
         {% block extrajs %}
 
         {% endblock extrajs %}

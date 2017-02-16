@@ -1,6 +1,9 @@
 * {
     font-family: Georgia, "Times New Roman", Times, serif;
 }
+p {
+    text-align: justify;
+}
 .headline {
     text-align: center;
     font-variant: small-caps;
