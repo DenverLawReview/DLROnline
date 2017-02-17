@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Custom Apps
     'articles.apps.ArticlesConfig',
+    'symposia.apps.SymposiaConfig',
 ]
 
 MIDDLEWARE = [
