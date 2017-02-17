@@ -7,7 +7,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('published',)
     search_fields = ['headline']
     date_hierarchy = 'pub_date'
-    exclude = ('online_issue', 'print_issue')
+    # exclude = ('online_issue', 'print_issue')
     prepopulated_fields = {"slug": ("headline",)}
 
     class Media:

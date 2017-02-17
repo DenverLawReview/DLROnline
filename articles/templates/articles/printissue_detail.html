@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block main_content %}
+    <h1>{{ print_issue.volume }}, {{ print_issue.issue }}</h1>
+    {% for article in print_issue.published_articles %}
+        {% include 'articles/includes/article_preview.html' %}
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock main_content %}

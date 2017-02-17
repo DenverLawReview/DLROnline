@@ -9,6 +9,10 @@
     <h1 class="headline">{{article.headline}}</h1>
     <p class="author">By {{article.author}}</p>
     {{article.body|safe}}
+    <div class="well">
+        <h6>{{article.author}}</h6>
+        {{article.author_bio|safe}}
+    </div>
 </article>
 {% endblock main_content %}
 {% block extrajs %}

@@ -5,7 +5,7 @@ app_name = "articles"
 urlpatterns = [
     # Articles
     url(r'^articles/$', ArticleList.as_view(), name='article-list'),
-    url(r'^articles/(?P<pk>\d+)/(?P<slug>[-_\w]+)$',
+    url(r'^articles/(?P<year>\d{4})/(?P<month>\d{1,2})/(?P<day>\d{1,2})/(?P<slug>[-_\w]+)/(?P<pk>\d+)$',
         ArticleDetail.as_view(), name='article-detail'),
     # Categories
     url(r'^articles/categories/(?P<pk>\d+)/(?P<slug>[-_\w]+)$',

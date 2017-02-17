@@ -61,15 +61,16 @@
                             <p>The <em>Denver Law Review</em> strives to publish articles of the highest quality in all areas of the law. The <em>Denver Law Review</em> has proudly featured such distinguished authors as U.S. Supreme Court Justices Sandra Day O’Connor, William O. Douglas, and Byron White; noted constitutional law scholar Erwin Chemerinsky; and consumer advocate Ralph Nader. The <em>Denver Law Review</em> actively seeks submissions from professors, practitioners, and judges from all practice areas.</p>
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col-xs-12">
                             <h4>Categories</h4>
                             {% for category in categories %}
-                                <h5>{{ category.title }} <span class="badge">{{ category.num_articles }}</span></h5>
+                                <h5><a href="{% url 'articles:category-detail' category.pk category.slug %}">{{ category.title }}</a> <span class="badge">{{ category.num_articles }}</span></h5>
                             {% endfor %}
                         </div>
-
                     </div>
+                    <hr>
                     <div class="row">
                         {% block sidebar_content %}
 
@@ -77,9 +78,12 @@
                     </div>
                 </div>
             </div>
+        </div> <!-- Container -->
+        <div class="container" id="footer">
+            <hr>
             <div class="row">
-                <div class="col-xs-12 well">
-                    Denver Law Review
+                <div class="col-xs-12">
+                    <h4 class="text-center">Denver Law Review</h4>
                 </div>
             </div>
         </div>

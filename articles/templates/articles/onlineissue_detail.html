@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main_content %}
+    <h1>{{ online_issue.title }}</h1>
+    {{ online_issue.introduction|safe }}
+    {% for article in online_issue.published_articles %}
+        {% include 'articles/includes/article_preview.html' %}
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock main_content %}
