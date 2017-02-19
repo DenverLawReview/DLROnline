@@ -1,14 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
-        <h1 class="headline"><a href="{% url 'articles:article-detail' article.pub_date.year article.pub_date.month article.pub_date.day article.slug article.pk %}" title="">{{article.headline}}</a></h1>
-        <div class="row small">
-            <div class="col-xs-6">
-                <p>{{ article.author }} | {{ article.pub_date }}</p>
-            </div>
-            <div class="col-xs-6">
-                <p class="text-right"><a href="{% url 'articles:category-detail' article.category.pk article.category.slug %}" class="label label-default">{{ article.category.title }}</a></p>
-            </div>
-        </div>
+        <h1 class="headline"><a href="{% url 'articles:article-detail' article.pk article.slug %}" title="">{{article.headline}}</a></h1>
+        <p class="small">{{ article.author }} | {{ article.pub_date }}</p>
         {{ article.blurb|safe }}
     </div>
 </div>

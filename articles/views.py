@@ -1,15 +1,13 @@
-from django.views.generic import ListView, DetailView, DateDetailView
+from django.views.generic import ListView, DetailView
 from .models import Article, Category, PrintIssue, OnlineIssue
 
 class ArticleList(ListView):
     context_object_name = 'articles'
     queryset = Article.published_articles.all()
 
-class ArticleDetail(DateDetailView):
+class ArticleDetail(DetailView):
     model = Article
-    date_field = 'pub_date'
     context_object_name = 'article'
-    month_format = "%m"
 
     def get_queryset(self):
         if self.request.user.is_staff:

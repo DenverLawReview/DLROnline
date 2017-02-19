@@ -18,7 +18,6 @@ from django.contrib import admin
 from articles.views import ArticleList
 
 urlpatterns = [
-    url('^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', ArticleList.as_view(), name='home'),
     url(r'^', include('articles.urls')),
