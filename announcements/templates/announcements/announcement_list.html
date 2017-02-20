@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main_content %}
+    {% for announcement in announcements %}
+        <p> {{ announcement.pub_date }} </p>
+        <h1><a href="{% url 'announcements:announcement-detail' announcement.pk announcement.slug %}">{{ announcement.headline }}</a></h1>
+        {{ announcement.body|safe|truncatewords_html:25 }}
+        {% if not forloop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock main_content %}

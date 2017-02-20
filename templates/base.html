@@ -32,18 +32,18 @@
                         <li><a href="{% url 'home' %}" title="">Home</a></li>
                         <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
                         <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
-                        <li><a href="#">Symposia</a></li>
-                        <li><a href="#" title="">News &amp; Events</a></li>
+                        <li><a href="{% url 'symposia:symposia-list' %}">Symposia</a></li>
+                        <li><a href="{% url 'announcements:announcement-list' %}" title="">News &amp; Events</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Masthead</a></li>
-                                <li><a href="#">Submissions</a></li>
-                                <li><a href="#">Subscriptions</a></li>
-                                <li><a href="#">Candidacy</a></li>
+                                <li><a href="/about/" title="">About</a></li>
+                                <li><a href="/about/subscriptions/" title="Subscriptions">Subscriptions</a></li>
+                                <li><a href="/about/submissions/" title="Submissions">Submissions</a></li>
+                                <li><a href="/about/candidacy/" title="Candidacy">Candidacy</a></li>
+                                <li><a href="/about/masthead/" title="Masthead">Masthead</a></li>
                             </ul>
                         </li>
                     </ul>
