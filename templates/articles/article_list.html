@@ -1,0 +1,13 @@
+{% extends "two-col.html" %}
+{% block main_content %}
+<div class="row">
+    <div id="article-list" class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+        {% for article in articles %}
+            {% include 'articles/includes/article_preview.html' %}
+            {% if not forloop.last %}
+                <hr />
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock main_content %}

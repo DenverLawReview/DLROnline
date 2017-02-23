@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-{% block main_content %}
-    <h1>Online Special Issues</h1>
-    {% for online_issue in online_issues %}
-        <h3><a href="{% url 'articles:online-issue-detail' online_issue.pk online_issue.slug %}">{{ online_issue.title }}</a></h3>
-    {% endfor %}
-{% endblock main_content %}

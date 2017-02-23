@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib import admin
 from .models import Article, Category, OnlineIssue, PrintIssue
 from ckeditor.widgets import CKEditorWidget
+from django.contrib.flatpages.admin import FlatPageAdmin
+from django.contrib.flatpages.models import FlatPage
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('headline', 'author', 'category', 'pub_date', 'published')
@@ -15,7 +17,6 @@ class ArticleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': CKEditorWidget},
     }
-
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -60,6 +61,17 @@ class PrintIssueSelectForm(forms.ModelForm):
 
 class PrintIssueAdmin(admin.ModelAdmin):
     form = PrintIssueSelectForm
+
+# Define a new FlatPageAdmin
+class FlatPageAdmin(FlatPageAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget},
+    }
+
+# Re-register FlatPageAdmin
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)
+
 
 
 admin.site.register(Article, ArticleAdmin)

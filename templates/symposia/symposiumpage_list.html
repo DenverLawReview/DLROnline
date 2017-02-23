@@ -1,0 +1,7 @@
+{% extends "two-col.html" %}
+
+{% block main_content %}
+    {% for symposium in symposia %}
+        <h1><a href="{% url 'symposia:symposia-detail' symposium.pk symposium.slug %}" title="">{{ symposium.headline }}</a></h1>
+    {% endfor %}
+{% endblock main_content %}

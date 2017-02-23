@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block main_content %}
-{% for article in articles %}
-    {% include 'articles/includes/article_preview.html' %}
-    {% if not forloop.last %}
-        <hr />
-    {% endif %}
-{% endfor %}
-{% endblock main_content %}

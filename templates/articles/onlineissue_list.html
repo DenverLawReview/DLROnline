@@ -1,0 +1,21 @@
+{% extends "two-col.html" %}
+{% block main_content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+        {% for online_issue in online_issues %}
+            {% if forloop.first %}
+                <h1>Latest Issue</h1>
+                <h3 class="headline"><a href="{% url 'articles:online-issue-detail' online_issue.pk online_issue.slug %}">{{ online_issue.title }}</a></h3>
+                <p>{{ online_issue.introduction|safe }}</p>
+                {% for article in online_issue.article_set.all %}
+                    {% include 'articles/includes/article_preview.html' %}
+                {% endfor %}
+                <h2>Past Issues</h2>
+            {% else %}
+                <h3 class="headline"><a href="{% url 'articles:online-issue-detail' online_issue.pk online_issue.slug %}">{{ online_issue.title }}</a></h3>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock main_content %}

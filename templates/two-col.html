@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block container %}
+    <section id="col-main" class="col-lg-8 col-md-8">
+        {% block main_content %}
+        {% endblock main_content %}
+    </section>
+    <aside id="col-sidebar" class="col-lg-4 col-md-4">
+        <h1>About <em>Denver&nbsp;Law&nbsp;Review</em></h1>
+        <p>The <em>Denver Law Review</em> strives to publish articles of the highest quality in all areas of the law. The <em>Denver Law Review</em> has proudly featured such distinguished authors as U.S. Supreme Court Justices Sandra Day O’Connor, William O. Douglas, and Byron White; noted constitutional law scholar Erwin Chemerinsky; and consumer advocate Ralph Nader. The <em>Denver Law Review</em> actively seeks submissions from professors, practitioners, and judges from all practice areas.</p>
+        <hr>
+        <h2 class="text-center">Categories</h2>
+        {% for category in categories %}
+            <h3><a href="{% url 'articles:category-detail' category.pk category.slug %}">{{ category.title }}</a> <span class="badge">{{ category.num_articles }}</span></h3>
+        {% endfor %}
+        {% block sidebar_content %}
+        {% endblock sidebar_content %}
+    </aside>
+{% endblock container %}

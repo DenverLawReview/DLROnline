@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-{% block main_content %}
-<h1>Print Issues of the Denver Law Review</h1>
-{% for print_issue in print_issues %}
-    <h3><a href="{% url 'articles:print-issue-detail' print_issue.pk %}">Volume {{ print_issue.volume }}, Issue {{ print_issue.issue }}</a></h3>
-{% endfor %}
-{% endblock main_content %}

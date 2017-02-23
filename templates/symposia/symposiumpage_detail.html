@@ -1,0 +1,11 @@
+{% extends "one-col.html" %}
+{% block main_content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+        <article id="top">
+            <h1 class="headline">{{ symposium.headline }}</h1>
+            {{ symposium.content|safe }}
+        </article>
+    </div>
+</div>
+{% endblock main_content %}

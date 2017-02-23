@@ -6,87 +6,65 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Denver Law Review{% block title %}{% endblock title %}</title>
-        <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/DLRbootstrap.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
         {% block extrastyles %}
         {% endblock extrastyles %}
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <img class="img-responsive" src="{% static '/img/DLRBannerLogo.png' %}" alt="Denver Law Review">
-            </div>
-            <nav class="navbar navbar-default">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{% url 'home' %}" title="">Home</a></li>
-                        <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
-                        <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
-                        <li><a href="{% url 'symposia:symposia-list' %}">Symposia</a></li>
-                        <li><a href="{% url 'announcements:announcement-list' %}" title="">News &amp; Events</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/about/" title="">About</a></li>
-                                <li><a href="/about/subscriptions/" title="Subscriptions">Subscriptions</a></li>
-                                <li><a href="/about/submissions/" title="Submissions">Submissions</a></li>
-                                <li><a href="/about/candidacy/" title="Candidacy">Candidacy</a></li>
-                                <li><a href="/about/masthead/" title="Masthead">Masthead</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </nav>
-            <div class="row">
-                <div class="col-lg-8 col-md-8">
-                    {% block main_content %}
-                    {% endblock main_content %}
-                </div>
-                <div class="well col-lg-4 col-md-4">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h3>About <em>Denver&nbsp;Law&nbsp;Review</em></h3>
-                            <p>The <em>Denver Law Review</em> strives to publish articles of the highest quality in all areas of the law. The <em>Denver Law Review</em> has proudly featured such distinguished authors as U.S. Supreme Court Justices Sandra Day O’Connor, William O. Douglas, and Byron White; noted constitutional law scholar Erwin Chemerinsky; and consumer advocate Ralph Nader. The <em>Denver Law Review</em> actively seeks submissions from professors, practitioners, and judges from all practice areas.</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h4>Categories</h4>
-                            {% for category in categories %}
-                                <h5><a href="{% url 'articles:category-detail' category.pk category.slug %}">{{ category.title }}</a> <span class="badge">{{ category.num_articles }}</span></h5>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        {% block sidebar_content %}
-
-                        {% endblock sidebar_content %}
+            <header><!-- branding and nav -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 class="main-branding"><a href="{% url 'home' %}"><img class="img-responsive" src="{% static '/img/shield.jpg' %}" alt="">Denver Law Review</a></h1>
                     </div>
                 </div>
-            </div>
-        </div> <!-- Container -->
-        <div class="container" id="footer">
-            <hr>
-            <div class="row">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="{% url 'home' %}" title="">Home</a></li>
+                                    <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
+                                    <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
+                                    <li><a href="{% url 'symposia:symposia-list' %}">Symposia</a></li>
+                                    <li><a href="{% url 'announcements:announcement-list' %}" title="">News &amp; Events</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/about/" title="">About</a></li>
+                                            <li><a href="/about/subscriptions/" title="Subscriptions">Subscriptions</a></li>
+                                            <li><a href="/about/submissions/" title="Submissions">Submissions</a></li>
+                                            <li><a href="/about/candidacy/" title="Candidacy">Candidacy</a></li>
+                                            <li><a href="/about/masthead/" title="Masthead">Masthead</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <main class="row"><!--  Primary body of the page -->
+                {% block container %}
+                {% endblock container %}
+            </main>
+            <footer class="row" id="footer">
                 <div class="col-xs-12">
-                    <h4 class="text-center">Denver Law Review</h4>
+                    <hr>
+                    <p class="small text-center">Copyright © {% now 'Y' %}, <em>Denver Law Review</em>. All rights reserved. No claim on governmental works. ISSN 2469-6471.</p>
+                    <img class="img-responsive center-block" src="{% static '/img/footer-logo.png' %}" style="max-width:250px;" />
                 </div>
-            </div>
-        </div>
+            </footer>
+        </div><!-- Container -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="{% static '/js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
         {% block extrajs %}

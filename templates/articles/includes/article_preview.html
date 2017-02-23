@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-xs-12">
+        <article>
+            <h1 class="headline"><a href="{% url 'articles:article-detail' article.pk article.slug %}" title="">{{article.headline}}</a></h1>
+            <p class="small"><strong>{{ article.author }}</strong> | {{ article.pub_date }}</p>
+            {{ article.blurb|safe }}
+        </article>
+    </div>
+</div>
