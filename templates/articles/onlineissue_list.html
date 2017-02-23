@@ -7,9 +7,11 @@
                 <h1>Latest Issue</h1>
                 <h3 class="headline"><a href="{% url 'articles:online-issue-detail' online_issue.pk online_issue.slug %}">{{ online_issue.title }}</a></h3>
                 <p>{{ online_issue.introduction|safe }}</p>
-                {% for article in online_issue.article_set.all %}
-                    {% include 'articles/includes/article_preview.html' %}
-                {% endfor %}
+                <div id="article-list">
+                    {% for article in online_issue.article_set.all %}
+                        {% include 'articles/includes/article_preview.html' %}
+                    {% endfor %}
+                </div>
                 <h2>Past Issues</h2>
             {% else %}
                 <h3 class="headline"><a href="{% url 'articles:online-issue-detail' online_issue.pk online_issue.slug %}">{{ online_issue.title }}</a></h3>

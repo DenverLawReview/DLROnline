@@ -1,4 +1,16 @@
 {% extends "base.html" %}
 {% block container %}
-
+<section class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    {% for article in articles %}
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="homepage-card {% cycle 'card-left' 'card-center' 'card-right' %}">
+            <small>{{article.pub_date}}</small>
+            <h1><a href="{% url 'articles:article-detail' article.pk article.slug %}" title="{{ article.headline }}">{{ article.headline }}</a></h1>
+            <p>
+                By <em>{{ article.author }}</em>
+            </p>
+        </div>
+    </div>
+{% endfor %}
+</section>
 {% endblock container %}

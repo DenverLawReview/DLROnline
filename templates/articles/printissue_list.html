@@ -5,10 +5,12 @@
         {% for print_issue in print_issues %}
             {% if forloop.first %}
                 <h1>Latest Issue</h1>
-                <h3 class="headline"><a href="{% url 'articles:print-issue-detail' print_issue.pk %}">Volume {{ print_issue.volume }}, Issue {{ print_issue.issue }}</a></h3>
-                {% for article in print_issue.article_set.all %}
-                    {% include 'articles/includes/article_preview.html' %}
-                {% endfor %}
+                <h2 class="headline"><a href="{% url 'articles:print-issue-detail' print_issue.pk %}">Volume {{ print_issue.volume }}, Issue {{ print_issue.issue }}</a></h2>
+                <div id="article-list">
+                    {% for article in print_issue.article_set.all %}
+                        {% include 'articles/includes/article_preview.html' %}
+                    {% endfor %}
+                </div>
                 <h2>Past Issues</h2>
             {% else %}
                 <h3><a href="{% url 'articles:print-issue-detail' print_issue.pk %}">Volume {{ print_issue.volume }}, Issue {{ print_issue.issue }}</a></h3>

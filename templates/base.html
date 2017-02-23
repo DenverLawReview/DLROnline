@@ -12,45 +12,44 @@
         {% endblock extrastyles %}
     </head>
     <body>
-        <div class="container">
-            <header><!-- branding and nav -->
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="main-branding"><a href="{% url 'home' %}"><img class="img-responsive" src="{% static '/img/shield.jpg' %}" alt="">Denver Law Review</a></h1>
-                    </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <nav class="navbar navbar-default">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="{% url 'home' %}" title="">Home</a></li>
-                                    <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
-                                    <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
-                                    <li><a href="{% url 'symposia:symposia-list' %}">Symposia</a></li>
-                                    <li><a href="{% url 'announcements:announcement-list' %}" title="">News &amp; Events</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/about/" title="">About</a></li>
-                                            <li><a href="/about/subscriptions/" title="Subscriptions">Subscriptions</a></li>
-                                            <li><a href="/about/submissions/" title="Submissions">Submissions</a></li>
-                                            <li><a href="/about/candidacy/" title="Candidacy">Candidacy</a></li>
-                                            <li><a href="/about/masthead/" title="Masthead">Masthead</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- /.navbar-collapse -->
-                        </nav>
-                    </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'home' %}" title="DLR" class="navbar-brand">DLR</a></li>
+<!--                         <li><a href="" title="">Home</a></li>
+ -->                        <li><a href="{% url 'articles:print-issue-list' %}" title="">Print Issues</a></li>
+                        <li><a href="{% url 'articles:online-issue-list' %}" title="">Special Features</a></li>
+                        <li><a href="{% url 'symposia:symposia-list' %}">Symposia</a></li>
+                        <li><a href="{% url 'announcements:announcement-list' %}" title="">News &amp; Events</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/about/" title="">About</a></li>
+                                <li><a href="/about/subscriptions/" title="Subscriptions">Subscriptions</a></li>
+                                <li><a href="/about/submissions/" title="Submissions">Submissions</a></li>
+                                <li><a href="/about/candidacy/" title="Candidacy">Candidacy</a></li>
+                                <li><a href="/about/masthead/" title="Masthead">Masthead</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            <header class="row"><!-- branding and nav -->
+                <div class="col-xs-12">
+                    <center>
+                        <h1 class="main-branding"><img class="img-responsive" src="{% static '/img/shield.jpg' %}" alt="">Denver Law Review</h1>
+                    </center>
                 </div>
             </header>
             <main class="row"><!--  Primary body of the page -->
